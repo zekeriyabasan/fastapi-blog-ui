@@ -31,11 +31,12 @@ useEffect(() => {
       <section id="center">
         <div className="app_posts">
            {posts.map((post) => (
-            <Post post={post} key={post.id} />      
+            <Post post={post} key={post.id} url={BASE_URL} />    
+            
         ))}
           </div>
           <div className="app_hero">
-            <CreatePostForm  />
+            <CreatePostForm url={BASE_URL} />
           </div>
        
       </section>

@@ -1,9 +1,7 @@
 import { useState } from "react";
 import "../../css/CreatePostForm.css";
 
-const BASE_URL = "http://127.0.0.1:8000/";
-
-function CreatePostForm({ onPostCreated }) {
+function CreatePostForm({ url }) {
   const [form, setForm] = useState({
     title: "",
     content: "",
@@ -22,7 +20,7 @@ function CreatePostForm({ onPostCreated }) {
     e.preventDefault();
 
     try {
-      const res = await fetch(BASE_URL + "posts/", {
+      const res = await fetch(url + "posts/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -37,11 +35,6 @@ function CreatePostForm({ onPostCreated }) {
       const data = await res.json();
 
       console.log("Created post:", data);
-
-      // parent'a haber ver (opsiyonel)
-      if (onPostCreated) {
-        onPostCreated(data);
-      }
 
       // form reset
       setForm({
