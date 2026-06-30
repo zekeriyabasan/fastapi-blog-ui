@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "../css/Post.css";
 
 function Post({ post }) {
   const [imageUrl, setImageUrl] = useState("");
