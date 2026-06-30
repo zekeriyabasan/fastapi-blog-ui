@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
 import "./App.css";
+import Post from "./components/Post.jsx";
 
 const BASE_URL = "http://127.0.0.1:8000/";
 
@@ -27,12 +28,12 @@ useEffect(() => {
   return (
     <>
       <section id="center">
-        {posts.map((post) => (
-          <div key={post.id}>
-            <h2>{post.title}</h2>
-            <p>{post.content}</p>
-          </div>
+        <div className="app_posts">
+           {posts.map((post) => (
+            <Post post={post} key={post.id} />      
         ))}
+          </div>
+       
       </section>
     </>
   );
